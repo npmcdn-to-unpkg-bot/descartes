@@ -17,17 +17,16 @@
 
 
 			
-			{!! Form::open(array('method' => 'get', 'url' => 'emoticons')) !!}
-
+			{!! Form::open(array('method' => 'POST', 'action' => 'FormController@submit')) !!}
 				{!! Form::text(
-				    'name', 
+				    'feel', 
 					null, 
 					array(
 				    	'required', 
 						'placeholder' => 'How are you feeling?'
 					)
 				) !!}
-
+				{{ Form::hidden('method', 'search') }}
 				{!! Form::submit('Search!') !!}
 			{!! Form::close() !!}
 

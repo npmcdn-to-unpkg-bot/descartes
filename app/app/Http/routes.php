@@ -11,25 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', ['as' => 'lander', 'uses' => 'LanderController@index']);
+Route::get('/{feel}/{page}', ['as' => 'results', 'uses' => 'ResultsController@index']);
+Route::post('/form', ['as' => 'form', 'uses' => 'FormController@submit']);
+
+Route::resource('emoticons', 'EmoticonsController');
+Route::resource('feelings', 'FeelingsController');
+
+Route::model('emoticon', 'Emoticon');
+Route::model('feeling', 'Feeling');
+
+Route::bind('emoticons', function($value, $route) {
+	return App\Emoticon::whereSlug($value)->first();
 });
 
-Route::get('/results/{feeling}/{page}', 'EmoticonsController@index');
-
-//Route::resource('emoticons', 'EmoticonsController');
-//Route::resource('feelings', 'FeelingsController');
-
-//Route::model('emoticon', 'Emoticon');
-//Route::model('feeling', 'Feeling');
-
-//Route::bind('emoticons', function($value, $route) {
-//	return App\Emoticon::whereSlug($value)->first();
-//});
-
-//Route::bind('feelings', function($value, $route) {
-//	return App\Feeling::whereSlug($value)->first();
-//});
+Route::bind('feelings', function($value, $route) {
+	return App\Feeling::whereSlug($value)->first();
+});
 
 /*
 |--------------------------------------------------------------------------
