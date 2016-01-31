@@ -1,4 +1,4 @@
-@extends('index')
+@extends('master')
 @section('content')
 	<h1>Testing</h1>
 	@foreach($emoticons as $emoticon)

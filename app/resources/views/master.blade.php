@@ -7,39 +7,8 @@
     </head>
     <body>
         <div class="container">
-
-
-
-
-
-
-
-
-
-			
-			{!! Form::open(array('method' => 'get', 'url' => 'emoticons')) !!}
-
-				{!! Form::text(
-				    'name', 
-					null, 
-					array(
-				    	'required', 
-						'placeholder' => 'How are you feeling?'
-					)
-				) !!}
-
-				{!! Form::submit('Search!') !!}
-			{!! Form::close() !!}
-
-
-
-
-
-
-
-
-
-		</div>
+        	@yield('content')      
+        </div>
 		@include('common.footer')
     </body>
 </html>
