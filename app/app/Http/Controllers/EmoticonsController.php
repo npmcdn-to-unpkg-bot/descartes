@@ -10,9 +10,11 @@ use App\Emoticon;
 
 class EmoticonsController extends Controller
 {
+	private $COUNT = 2;	
+
     public function index()
 	{			
-		$emoticons = Emoticon::take(1)->get();	
+		$emoticons = Emoticon::take(2)->get();		
 		return view('emoticons.index', compact('emoticons'));
 	}
 }

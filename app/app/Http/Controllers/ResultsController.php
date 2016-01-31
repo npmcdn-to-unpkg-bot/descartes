@@ -10,9 +10,11 @@ use App\Emoticon;
 
 class ResultsController extends Controller
 {
-    public function index() 
-	{
-		$emoticons = Emoticon::take(1)->get();
+	private $COUNT = 2;
+
+    public function index($feeling, $page) 
+	{	
+		$emoticons = Emoticon::take($this->COUNT)->where('feeling', $feeling)->get();
 		return view('results.index', compact('emoticons'));
 	}
 }
