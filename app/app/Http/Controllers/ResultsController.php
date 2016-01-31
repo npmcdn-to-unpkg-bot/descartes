@@ -15,6 +15,7 @@ class ResultsController extends Controller
     public function index($feeling, $page) 
 	{	
 		$emoticons = Emoticon::take($this->COUNT)->where('feeling', $feeling)->get();
+	
 		return view('results.index', compact('emoticons'));
 	}
 }
